@@ -29,8 +29,12 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _Fire();
-        _Move();
+        if(!PauseMenu.isPaused)
+        {
+            _Fire();
+            _Move();
+        }
+        
     }
 
     private void _Move()
