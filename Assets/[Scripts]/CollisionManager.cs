@@ -7,7 +7,7 @@ using UnityEngine;
 public class CollisionManager : MonoBehaviour
 {
     public CubeBehaviour[] cubes;
-    public BulletBehaviour[] spheres;
+    public BulletBehaviour[] b_cube;
 
     private static Vector3[] faces;
 
@@ -27,7 +27,7 @@ public class CollisionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spheres = FindObjectsOfType<BulletBehaviour>();
+        b_cube = FindObjectsOfType<BulletBehaviour>();
 
         // check each AABB with every other AABB in the scene
         for (int i = 0; i < cubes.Length; i++)
@@ -42,13 +42,13 @@ public class CollisionManager : MonoBehaviour
         }
 
         // Check each sphere against each AABB in the scene
-        foreach (var sphere in spheres)
+        foreach (var b_cube in b_cube)
         {
             foreach (var cube in cubes)
             {
                 if (cube.name != "Player")
                 {
-                    CheckSphereAABB(sphere, cube);
+                    CheckSphereAABB(b_cube, cube);
                 }
                 
             }
